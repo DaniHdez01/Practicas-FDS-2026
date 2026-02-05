@@ -24,5 +24,27 @@ public class vectorOrdenable {
         }
     }
 
-    //Funciones para ejecutar los algoritmos
+    //Función para imprimir vector 
+
+    public void imprimirVector(){
+        for(int i =0; i <numeroDeElementos; i++){
+            System.out.println(vector[i]);
+        }
+    }
+    
+    //Funciones de ejecución de los algorítmos
+    public void ordenarPorBurbuja(){
+        AlgoritmoBurbuja.burbuja(vector); 
+    }
+
+    public void ordenarPorSeleccion(){
+        AlgoritmoSelectionSort.selectSort(vector);
+    }
+
+    public void ordenarPorMezcla(){
+        AlgoritmoMerge.mergeSort(vector);
+    }
+    
+
+
 }

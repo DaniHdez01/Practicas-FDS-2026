@@ -1,7 +1,7 @@
 package Algoritmos; 
 public class AlgoritmoMerge {
  
-    private void sort(int arr[], int l, int r){
+    private static void sort(int arr[], int l, int r){
         if(l<r){
             int m=l+(r-l)/2; 
             sort(arr, l, m); 
@@ -11,7 +11,7 @@ public class AlgoritmoMerge {
         }
     }
 
-    void merge(int arr[], int l, int m, int r) {
+   private static void merge(int arr[], int l, int m, int r) {
     // Encontrar el tamaño de los dos subarreglos para ser mezclados
     int n1 = m - l + 1;
     int n2 = r - m;
@@ -61,7 +61,7 @@ public class AlgoritmoMerge {
     }
 }
 
-    public void mergeSort(int[] v){
+    public static void mergeSort(int[] v){
         sort(v, 0, v.length-1); 
     }
 }

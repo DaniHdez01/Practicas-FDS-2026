@@ -1,7 +1,7 @@
 package Algoritmos; 
 public class AlgoritmoSelectionSort {
     //Algoritmo de selección
-    public void selectSort(int[] v) {
+    public static void selectSort(int[] v) {
         int m;
         for (int i = 0; i < v.length - 1; i++) {
             m = i;
