@@ -6,6 +6,10 @@ public class vectorOrdenable {
     int numeroDeElementos;
     int[]vector; 
     
+    public vectorOrdenable(int n){
+        this.numeroDeElementos = n; 
+        this.vector = new int[numeroDeElementos]; 
+    }
 
     //Funciones de inicialización de arrays
     public void rellenarArray(){
