@@ -18,6 +18,7 @@ public class Complejidad {
 
 
         vectorOrdenado.rellenarArray();
+        vectorOrdenado.imprimirVector();
         vectorInverso.rellenarInverso();
         vectorAleatorio.rellenarAleatorio(nIteracciones);
 
