@@ -6,6 +6,7 @@ public class Complejidad {
     private vectorOrdenable vectorInverso; 
     private vectorOrdenable vectorAleatorio; 
     private MatrizDeTiempos matrizTiempos; 
+
     public Complejidad(int n){
         this.nIteracciones = n;
         this.vectorOrdenado = new vectorOrdenable(nIteracciones);  
@@ -37,7 +38,7 @@ public class Complejidad {
     public void imprimeTiempos(){
         this.matrizTiempos.imprimeTiempos();
     }
-    public void guardarDatos(){
-        this.matrizTiempos.guardarTiempos("Excel_tiempos");
+    public void guardarDatos(String nombreArchivo){
+        this.matrizTiempos.guardarTiempos(nombreArchivo);
     }
 }
