@@ -15,15 +15,16 @@ public class MatrizDeTiempos {
         this.titulos = new String[nColumnas]; 
     }
 
-    public long asignaValor(int i, int j){
-        return matriz[i][j]; 
+    public void asignaValor(int i, int j, long valor){
+        matriz[i][j] = valor;  
     }
 
     public void imprimeTiempos(){
         for(int i = 0; i<nColumnas; i++){
             for(int j = 0; j<nFilas; j++){
-                System.out.println(matriz[i][j]);
+                System.out.println(matriz[i][j] + "\t");
             }
+            System.out.println();
         }
     }
 

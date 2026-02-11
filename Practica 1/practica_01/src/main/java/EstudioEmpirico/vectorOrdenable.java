@@ -37,18 +37,30 @@ public class vectorOrdenable {
     }
     
     //Funciones de ejecución de los algorítmos
-    public void ordenarPorBurbuja(){
+    public long ordenarPorBurbuja(){
+        long inicio = System.nanoTime(); 
         AlgoritmoBurbuja.burbuja(vector); 
+        long terminado = System.nanoTime(); 
+        long tiempo = terminado - inicio; 
+        return tiempo; 
     }
 
-    public void ordenarPorSeleccion(){
+    public long ordenarPorSeleccion(){
+        long inicio = System.nanoTime(); 
         AlgoritmoSelectionSort.selectSort(vector);
+        long terminado = System.nanoTime(); 
+        long tiempo = terminado - inicio; 
+        return tiempo; 
     }
-
-    public void ordenarPorMezcla(){
+    public long ordenarPorMezcla(){
+        long inicio = System.nanoTime(); 
         AlgoritmoMerge.mergeSort(vector);
+        long terminado = System.nanoTime(); 
+        long tiempo = terminado - inicio; 
+        return tiempo; 
     }
-    
-
-
 }
+
+
+
+
