@@ -6,13 +6,12 @@ public class MatrizDeTiempos {
     private int nFilas; 
     private int nColumnas; 
     private long [][] matriz; 
-    private String [] titulos;
+    private final String [] titulos = {"Burbuja", "Mezcla", "Selection Sort", "Caso mejor", "Caso peor", "Caso medio"};
 
     public MatrizDeTiempos (int nFilas, int nColumnas){
         this.nFilas = nFilas; 
         this.nColumnas = nColumnas; 
         this.matriz = new long[nFilas][nColumnas]; 
-        this.titulos = new String[nColumnas]; 
     }
 
     public void asignaValor(int i, int j, long valor){
@@ -22,7 +21,7 @@ public class MatrizDeTiempos {
     public void imprimeTiempos(){
         for(int i = 0; i<nColumnas; i++){
             for(int j = 0; j<nFilas; j++){
-                System.out.println(matriz[i][j] + "\t");
+                System.out.println( "Posicion "+i + " " + j + " " + matriz[i][j] + "\t");
             }
             System.out.println();
         }
@@ -33,15 +32,21 @@ public class MatrizDeTiempos {
          
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(rutaArchivo))){
 
-            //Escribir títulos 
+            //Escribir títulos de Algoritmos 
             for(int i = 0; i<nColumnas ; i++){
+                if (i==0){
+                    bw.write(";"); 
+                }
                 bw.write(titulos[i] + ";"); 
             }
-            bw.newLine();; 
+            bw.newLine();
 
             for(int i = 0; i<nColumnas; i++){
                 for (int j = 0; j<nFilas; j++){
-                    bw.write(String.valueOf(matriz[i][j])+","); 
+                    if(j == 0){
+                        bw.write(titulos[i+3] + ";"); 
+                    }
+                    bw.write(String.valueOf(matriz[i][j])+"; "); 
                 }
                 bw.newLine(); 
             }

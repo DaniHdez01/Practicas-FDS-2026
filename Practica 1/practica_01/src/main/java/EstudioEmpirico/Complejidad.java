@@ -9,29 +9,46 @@ public class Complejidad {
 
     public Complejidad(int n){
         this.nIteracciones = n;
-        this.vectorOrdenado = new vectorOrdenable(nIteracciones);  
-        this.vectorInverso = new vectorOrdenable(nIteracciones); 
-        this.vectorAleatorio = new vectorOrdenable(nIteracciones); 
         this.matrizTiempos = new MatrizDeTiempos(3, 3); 
     }
     public void ejecutarAlgoritmos(){
 
-
+        //BURBUJA
+        //CASO MEJOR
+        
+        matrizTiempos.asignaValor(0, 0, vectorOrdenado.ordenarPorBurbuja()); 
         vectorOrdenado.rellenarArray();
+        
+        //CASO PEOR
+        matrizTiempos.asignaValor(1, 0, vectorInverso.ordenarPorBurbuja());
         vectorInverso.rellenarInverso();
+
+        //CASO MEDIO
+        matrizTiempos.asignaValor(2, 0, vectorAleatorio.ordenarPorBurbuja());
         vectorAleatorio.rellenarAleatorio(nIteracciones);
 
-        matrizTiempos.asignaValor(0, 0, vectorOrdenado.ordenarPorBurbuja()); 
+
+        //MEZCLA 
+        //CASO MEJOR: 
         matrizTiempos.asignaValor(0, 1,vectorOrdenado.ordenarPorMezcla());
-        matrizTiempos.asignaValor(0, 2, vectorOrdenado.ordenarPorSeleccion());
+        vectorOrdenado.rellenarArray();
 
-        matrizTiempos.asignaValor(1, 0, vectorInverso.ordenarPorBurbuja());
+        //CASO PEOR:
         matrizTiempos.asignaValor(1, 1, vectorInverso.ordenarPorMezcla());
-        matrizTiempos.asignaValor(1, 2,vectorInverso.ordenarPorSeleccion());
-
-        matrizTiempos.asignaValor(2, 0, vectorAleatorio.ordenarPorBurbuja());
+        vectorInverso.rellenarInverso();
+        
+        //CASO MEDIO: 
         matrizTiempos.asignaValor(2, 1, vectorAleatorio.ordenarPorMezcla());
+        vectorAleatorio.rellenarAleatorio(nIteracciones);
+        
+        //SLECTION SORT
+        //CASO MEJOR 
+        matrizTiempos.asignaValor(0, 2, vectorOrdenado.ordenarPorSeleccion());
+        //CASO PEOR
+        matrizTiempos.asignaValor(1, 2,vectorInverso.ordenarPorSeleccion());
+        //CASO MEDIO
         matrizTiempos.asignaValor(2, 2, vectorAleatorio.ordenarPorSeleccion());
+    
 
     }
 

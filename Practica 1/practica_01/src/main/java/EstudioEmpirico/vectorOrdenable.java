@@ -3,8 +3,8 @@ package EstudioEmpirico;
 import Algoritmos.*;  
 
 public class vectorOrdenable {
-    int numeroDeElementos;
-    int[]vector; 
+    private int numeroDeElementos;
+    private volatile int[]vector; 
     
     public vectorOrdenable(int n){
         this.numeroDeElementos = n; 
@@ -18,8 +18,8 @@ public class vectorOrdenable {
         }
     }
     public void rellenarInverso(){
-        for (int i = numeroDeElementos-1; i >= 0; i--){
-            vector[i] = i; 
+        for (int i = 0; i<numeroDeElementos ; i++){
+            vector[i] = numeroDeElementos - 1 - i; 
         }
     }
     public void rellenarAleatorio(int max){
