@@ -2,9 +2,9 @@ package EstudioEmpirico;
 
 public class Complejidad {
     private int nIteracciones; 
-    private vectorOrdenable vectorOrdenado; 
-    private vectorOrdenable vectorInverso; 
-    private vectorOrdenable vectorAleatorio; 
+    private volatile vectorOrdenable vectorOrdenado; 
+    private volatile vectorOrdenable vectorInverso; 
+    private volatile vectorOrdenable vectorAleatorio; 
     private MatrizDeTiempos matrizTiempos; 
 
     public Complejidad(int n){
@@ -15,38 +15,50 @@ public class Complejidad {
 
         //BURBUJA
         //CASO MEJOR
-        
-        matrizTiempos.asignaValor(0, 0, vectorOrdenado.ordenarPorBurbuja()); 
+        vectorOrdenado = new vectorOrdenable(nIteracciones); 
         vectorOrdenado.rellenarArray();
+        matrizTiempos.asignaValor(0, 0, vectorOrdenado.ordenarPorBurbuja()); 
+        
         
         //CASO PEOR
-        matrizTiempos.asignaValor(1, 0, vectorInverso.ordenarPorBurbuja());
+        vectorInverso = new vectorOrdenable(nIteracciones);  
         vectorInverso.rellenarInverso();
+        matrizTiempos.asignaValor(1, 0, vectorInverso.ordenarPorBurbuja());
 
         //CASO MEDIO
-        matrizTiempos.asignaValor(2, 0, vectorAleatorio.ordenarPorBurbuja());
+        vectorAleatorio = new vectorOrdenable(nIteracciones); 
         vectorAleatorio.rellenarAleatorio(nIteracciones);
+        matrizTiempos.asignaValor(2, 0, vectorAleatorio.ordenarPorBurbuja());
 
 
         //MEZCLA 
         //CASO MEJOR: 
-        matrizTiempos.asignaValor(0, 1,vectorOrdenado.ordenarPorMezcla());
+        vectorOrdenado = new vectorOrdenable(nIteracciones); 
         vectorOrdenado.rellenarArray();
+        matrizTiempos.asignaValor(0, 1,vectorOrdenado.ordenarPorMezcla());
 
         //CASO PEOR:
-        matrizTiempos.asignaValor(1, 1, vectorInverso.ordenarPorMezcla());
+        vectorInverso = new vectorOrdenable(nIteracciones);
         vectorInverso.rellenarInverso();
+        matrizTiempos.asignaValor(1, 1, vectorInverso.ordenarPorMezcla());
         
         //CASO MEDIO: 
-        matrizTiempos.asignaValor(2, 1, vectorAleatorio.ordenarPorMezcla());
+        vectorAleatorio = new vectorOrdenable(nIteracciones);
         vectorAleatorio.rellenarAleatorio(nIteracciones);
+        matrizTiempos.asignaValor(2, 1, vectorAleatorio.ordenarPorMezcla());
         
         //SLECTION SORT
         //CASO MEJOR 
+        vectorOrdenado = new vectorOrdenable(nIteracciones); 
+        vectorOrdenado.rellenarArray();
         matrizTiempos.asignaValor(0, 2, vectorOrdenado.ordenarPorSeleccion());
         //CASO PEOR
+        vectorInverso = new vectorOrdenable(nIteracciones);
+        vectorInverso.rellenarInverso();
         matrizTiempos.asignaValor(1, 2,vectorInverso.ordenarPorSeleccion());
         //CASO MEDIO
+        vectorAleatorio = new vectorOrdenable(nIteracciones);
+        vectorAleatorio.rellenarAleatorio(nIteracciones);
         matrizTiempos.asignaValor(2, 2, vectorAleatorio.ordenarPorSeleccion());
     
 
