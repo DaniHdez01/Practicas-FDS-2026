@@ -6,7 +6,7 @@ public class MatrizDeTiempos {
     private int nFilas; 
     private int nColumnas; 
     private long [][] matriz; 
-    private final String [] titulos = {"Burbuja", "Mezcla", "Selection Sort", "Caso mejor", "Caso peor", "Caso medio"};
+    private final String [] titulos = {"Burbuja", "Mezcla", "SelectionSort", "Caso mejor", "Caso peor", "Caso medio"};
 
     public MatrizDeTiempos (int nFilas, int nColumnas){
         this.nFilas = nFilas; 
@@ -19,8 +19,8 @@ public class MatrizDeTiempos {
     }
 
     public void imprimeTiempos(){
-        for(int i = 0; i<nColumnas; i++){
-            for(int j = 0; j<nFilas; j++){
+        for(int i = 0; i<nFilas; i++){
+            for(int j = 0; j<nColumnas; j++){
                 System.out.println( "Posicion "+i + " " + j + " " + matriz[i][j] + "\t");
             }
             System.out.println();
@@ -41,8 +41,8 @@ public class MatrizDeTiempos {
             }
             bw.newLine();
 
-            for(int i = 0; i<nColumnas; i++){
-                for (int j = 0; j<nFilas; j++){
+            for(int i = 0; i<nFilas; i++){
+                for (int j = 0; j<nColumnas; j++){
                     if(j == 0){
                         bw.write(titulos[i+3] + ";"); 
                     }

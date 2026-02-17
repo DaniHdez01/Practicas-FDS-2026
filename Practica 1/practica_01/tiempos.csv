@@ -1,4 +1,4 @@
-;Burbuja;Mezcla;Selection Sort;
-Caso mejor;4702300; 2177200; 6177500; 
-Caso peor;2861700; 499500; 2353400; 
-Caso medio;400400; 200600; 2550900; 
+;Burbuja;Mezcla;SelectionSort;
+Caso mejor;2592000; 1260000; 5126900; 
+Caso peor;1111000; 150800; 143100; 
+Caso medio;2599100; 1417300; 1503000; 
