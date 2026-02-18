@@ -1,10 +1,10 @@
 
 package EstudioEmpirico;
 import Algoritmos.*;  
-
+import java.util.Random; 
 public class vectorOrdenable {
     private int numeroDeElementos;
-    private volatile int[]vector; 
+    private int[]vector; //Vector donde cambiaremos el volatile 
     
     public vectorOrdenable(int n){
         this.numeroDeElementos = n; 
@@ -23,8 +23,9 @@ public class vectorOrdenable {
         }
     }
     public void rellenarAleatorio(int max){
+        Random random = new Random(); 
         for (int i = 0; i<numeroDeElementos; i++){
-            vector[i] = (int) (Math.random() * max); 
+            vector[i] = (int) (random.nextInt(max)); 
         }
     }
 
