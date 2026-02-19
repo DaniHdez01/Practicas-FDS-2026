@@ -4,7 +4,7 @@ import Algoritmos.*;
 import java.util.Random; 
 public class vectorOrdenable {
     private int numeroDeElementos;
-    private  int[]vector; //Vector donde cambiaremos el volatile 
+    private volatile int[]vector; //Vector donde cambiaremos el volatile 
     
     public vectorOrdenable(int n){
         this.numeroDeElementos = n; 
