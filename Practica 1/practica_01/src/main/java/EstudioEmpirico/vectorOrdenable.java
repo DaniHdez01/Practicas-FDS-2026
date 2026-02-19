@@ -1,10 +1,10 @@
-
 package EstudioEmpirico;
+import java.util.Arrays;
 import Algoritmos.*;  
 import java.util.Random; 
 public class vectorOrdenable {
     private int numeroDeElementos;
-    private int[]vector; //Vector donde cambiaremos el volatile 
+    private  int[]vector; //Vector donde cambiaremos el volatile 
     
     public vectorOrdenable(int n){
         this.numeroDeElementos = n; 
@@ -39,23 +39,26 @@ public class vectorOrdenable {
     
     //Funciones de ejecución de los algorítmos
     public long ordenarPorBurbuja(){
+        int[] array_a_ordenar = Arrays.copyOf(this.vector, this.vector.length);
         long inicio = System.nanoTime(); 
-        AlgoritmoBurbuja.burbuja(vector); 
+        AlgoritmoBurbuja.burbuja(array_a_ordenar); 
         long terminado = System.nanoTime(); 
         long tiempo = terminado - inicio; 
         return tiempo; 
     }
 
     public long ordenarPorSeleccion(){
+        int[] array_a_ordenar = Arrays.copyOf(this.vector, this.vector.length);
         long inicio = System.nanoTime(); 
-        AlgoritmoSelectionSort.selectSort(vector);
+        AlgoritmoSelectionSort.selectSort(array_a_ordenar);
         long terminado = System.nanoTime(); 
         long tiempo = terminado - inicio; 
         return tiempo; 
     }
     public long ordenarPorMezcla(){
+        int[] array_a_ordenar = Arrays.copyOf(this.vector, this.vector.length);
         long inicio = System.nanoTime(); 
-        AlgoritmoMerge.mergeSort(vector);
+        AlgoritmoMerge.mergeSort(array_a_ordenar);
         long terminado = System.nanoTime(); 
         long tiempo = terminado - inicio; 
         return tiempo; 

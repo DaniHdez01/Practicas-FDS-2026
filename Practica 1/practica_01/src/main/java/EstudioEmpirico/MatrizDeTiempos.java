@@ -32,27 +32,25 @@ public class MatrizDeTiempos {
          
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(rutaArchivo))){
 
-            //Escribir títulos de Algoritmos 
-            for(int i = 0; i<nColumnas ; i++){
-                if (i==0){
-                    bw.write(";"); 
-                }
-                bw.write(titulos[i] + ";"); 
+            bw.write(";");
+            for(int j = 0; j < nColumnas; j++){
+             
+                bw.write(titulos[j + 3] + ";");
             }
             bw.newLine();
 
+         
             for(int i = 0; i<nFilas; i++){
+              
+                bw.write(titulos[i] + ";");
                 for (int j = 0; j<nColumnas; j++){
-                    if(j == 0){
-                        bw.write(titulos[i+3] + ";"); 
-                    }
                     bw.write(String.valueOf(matriz[i][j])+"; "); 
                 }
                 bw.newLine(); 
             }
 
             System.out.println("Archivo cargado con éxito"); 
-        } catch (IOException e){
+        } catch (IOException e) {
             System.err.println("Error al cargar el archivo"); 
         }
     }

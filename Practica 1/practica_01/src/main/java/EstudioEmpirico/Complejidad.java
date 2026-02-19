@@ -2,24 +2,20 @@ package EstudioEmpirico;
 
 public class Complejidad {
     private int nIteracciones; 
-    private volatile vectorOrdenable vectorOrdenado; 
-    private volatile vectorOrdenable vectorInverso; 
-    private volatile vectorOrdenable vectorAleatorio; 
+    private vectorOrdenable vectorOrdenado; 
+    private vectorOrdenable vectorInverso; 
+    private vectorOrdenable vectorAleatorio; 
     private MatrizDeTiempos matrizTiempos; 
 
     public Complejidad(int n){
         this.nIteracciones = n;
-        this.matrizTiempos = new MatrizDeTiempos(3, 3); 
+                this.matrizTiempos = new MatrizDeTiempos(3, 3);
+        
+        
     }
     public void ejecutarAlgoritmos(){
 
         //BURBUJA
-        //CASO MEJOR
-        vectorOrdenado = new vectorOrdenable(nIteracciones); 
-        vectorOrdenado.rellenarArray();
-        long tBurbujaMejor = vectorOrdenado.ordenarPorBurbuja(); 
-        matrizTiempos.asignaValor(0, 0, tBurbujaMejor); 
-        //CASO PEOR
         vectorInverso = new vectorOrdenable(nIteracciones);  
         vectorInverso.rellenarInverso();
         long tBurbujaPeor = vectorInverso.ordenarPorBurbuja();
@@ -29,14 +25,14 @@ public class Complejidad {
         vectorAleatorio.rellenarAleatorio(nIteracciones);
         long tBurbujaMedio = vectorAleatorio.ordenarPorBurbuja();
         matrizTiempos.asignaValor(0, 2, tBurbujaMedio);
+        //CASO MEJOR
+        vectorOrdenado = new vectorOrdenable(nIteracciones); 
+        vectorOrdenado.rellenarArray();
+        long tBurbujaMejor = vectorOrdenado.ordenarPorBurbuja(); 
+        matrizTiempos.asignaValor(0, 0, tBurbujaMejor); 
 
 
         //MEZCLA 
-        //CASO MEJOR: 
-        vectorOrdenado = new vectorOrdenable(nIteracciones); 
-        vectorOrdenado.rellenarArray();
-        long tMezclaMejor = vectorOrdenado.ordenarPorMezcla();
-        matrizTiempos.asignaValor(1, 0,tMezclaMejor);
         //CASO PEOR:
         vectorInverso = new vectorOrdenable(nIteracciones);
         vectorInverso.rellenarInverso();
@@ -47,13 +43,13 @@ public class Complejidad {
         vectorAleatorio.rellenarAleatorio(nIteracciones);
         long tMezclaMedio = vectorAleatorio.ordenarPorMezcla(); 
         matrizTiempos.asignaValor(1, 2, tMezclaMedio);
-        
-        //SLECTION SORT
-        //CASO MEJOR 
+        //CASO MEJOR: 
         vectorOrdenado = new vectorOrdenable(nIteracciones); 
         vectorOrdenado.rellenarArray();
-        long tSeleccionMejor = vectorOrdenado.ordenarPorSeleccion();
-        matrizTiempos.asignaValor(2, 0, tSeleccionMejor);
+        long tMezclaMejor = vectorOrdenado.ordenarPorMezcla();
+        matrizTiempos.asignaValor(1, 0,tMezclaMejor);
+        
+        //SLECTION SORT
         //CASO PEOR
         vectorInverso = new vectorOrdenable(nIteracciones);
         vectorInverso.rellenarInverso();
@@ -64,6 +60,11 @@ public class Complejidad {
         vectorAleatorio.rellenarAleatorio(nIteracciones);
         long tSeleccionMedio = vectorAleatorio.ordenarPorSeleccion();
         matrizTiempos.asignaValor(2, 2, tSeleccionMedio);
+        //CASO MEJOR 
+        vectorOrdenado = new vectorOrdenable(nIteracciones); 
+        vectorOrdenado.rellenarArray();
+        long tSeleccionMejor = vectorOrdenado.ordenarPorSeleccion();
+        matrizTiempos.asignaValor(2, 0, tSeleccionMejor);
     
 
     }
