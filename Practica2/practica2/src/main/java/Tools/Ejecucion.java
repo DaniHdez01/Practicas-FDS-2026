@@ -3,7 +3,7 @@ package Tools;
 public class Ejecucion {
     private long [] tiemposDYV; 
     private long [] tiemposBruta; 
-    private static String titulos[] = {"Tamaño, Bruta(ns), DivideVenceras(ns)"}; 
+    private static String titulos[] = {"Tamaño", "Bruta(ns)", "DivideVenceras(ns)"}; 
 
     public Ejecucion() {
         this.tiemposDYV = new long[5];
@@ -29,8 +29,10 @@ public class Ejecucion {
             DivideYVenceras.contarInversiones(vector);
             end = System.nanoTime();
             long tiempoDivide = (end - start) ;
-
+            //CAMBIAR PARA GUARDAR TIEMPOS DE EJECUCIÓN EN LOS ARRAYS 
             System.out.println(n + "\t" + tiempoBruta + "\t\t" + tiempoDivide);
         }
     }
+
+    //Generar CSV
 }
