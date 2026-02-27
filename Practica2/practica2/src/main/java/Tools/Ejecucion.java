@@ -1,5 +1,9 @@
 package Tools;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Ejecucion {
     private long [] tiemposDYV; 
     private long [] tiemposBruta; 
@@ -11,10 +15,10 @@ public class Ejecucion {
     }
     
     public void ejecucionAlgoritmos(){
-        int[] tamaños = {100, 50, 10, 20, 50};
+        int[] tamaños = {100, 500, 1000, 2000, 5000};
 
         System.out.println("Tamaño\tBruta(ns)\tDivideVenceras(ns)");
-
+        int i = 0; 
         for (int n : tamaños) {
             int[] vector = Generador.generarVector(n);
 
@@ -23,16 +27,43 @@ public class Ejecucion {
             Bruta.inversiones(vector);
             long end = System.nanoTime();
             long tiempoBruta = (end - start) ;
+            tiemposBruta[i] = tiempoBruta;
 
             //divide y venceras
             start = System.nanoTime();
             DivideYVenceras.contarInversiones(vector);
             end = System.nanoTime();
             long tiempoDivide = (end - start) ;
-            //CAMBIAR PARA GUARDAR TIEMPOS DE EJECUCIÓN EN LOS ARRAYS 
+            tiemposDYV[i] = tiempoDivide; 
+            
             System.out.println(n + "\t" + tiempoBruta + "\t\t" + tiempoDivide);
+            
+            i++; //Actualizar indice 
         }
+        generarCSV(tamaños, "tiempos"); 
     }
 
     //Generar CSV
+    private void generarCSV(int [] tamaños, String nombreArchivo){
+        nombreArchivo = nombreArchivo + ".csv"; 
+        
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(nombreArchivo));
+
+
+            for(int i = 0; i< titulos.length; i++){
+                bw.write(titulos[i] + ";");
+            }
+            bw.newLine();
+            for(int i = 0; i< tamaños.length; i++){
+                bw.write(tamaños[i] + ";" + this.tiemposBruta[i] + ";" + this.tiemposDYV[i] + ";") ;
+                bw.newLine(); 
+            }
+            System.out.println("Archivo .csv cargado correctamente"); 
+            bw.close(); 
+        } catch (IOException e){
+            System.err.println("Error al cargar el archivo");
+        }
+
+    }
 }
