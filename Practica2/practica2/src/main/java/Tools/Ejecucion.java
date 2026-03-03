@@ -14,7 +14,7 @@ public class Ejecucion {
         this.tiemposBruta = new long[5];
     }
     
-    public void ejecucionAlgoritmos(){
+    public void ejecucionMasiva(){
         int[] tamaños = {100, 500, 1000, 2000, 5000};
 
         System.out.println("Tamaño\tBruta(ns)\tDivideVenceras(ns)");
@@ -42,7 +42,18 @@ public class Ejecucion {
         }
         generarCSV(tamaños, "tiempos"); 
     }
+    public void ejecucionUsuario(int [] vector){
+            long start = System.nanoTime();
+            Bruta.inversiones(vector);
+            long end = System.nanoTime();
+            long tiempoBruta = (end - start) ;
 
+            //divide y venceras
+            start = System.nanoTime();
+            DivideYVenceras.contarInversiones(vector);
+            end = System.nanoTime();
+            long tiempoDivide = (end - start) ;
+    }
     //Generar CSV
     private void generarCSV(int [] tamaños, String nombreArchivo){
         nombreArchivo = nombreArchivo + ".csv"; 
