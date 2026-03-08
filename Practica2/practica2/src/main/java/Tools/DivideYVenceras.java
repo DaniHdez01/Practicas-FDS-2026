@@ -1,8 +1,8 @@
 package Tools;
 
 public class DivideYVenceras {
-      public static int contarInversiones(int[] array) {
-        return contar(array, 0, array.length - 1);
+      public static int contarInversiones(int[] vector) {
+        return contar(vector, 0, vector.length - 1);
     }
 
     private static int contar(int[] array, int izquierda, int derecha) {

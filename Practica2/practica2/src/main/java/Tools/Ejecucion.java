@@ -23,36 +23,30 @@ public class Ejecucion {
             int[] vector = Generador.generarVector(n);
 
             //fuerza bruta
-            long start = System.nanoTime();
-            Bruta.inversiones(vector);
-            long end = System.nanoTime();
-            long tiempoBruta = (end - start) ;
-            tiemposBruta[i] = tiempoBruta;
-
+            long tiempoBruta = ejecucionBrutaUnitaria(vector);  
             //divide y venceras
-            start = System.nanoTime();
-            DivideYVenceras.contarInversiones(vector);
-            end = System.nanoTime();
-            long tiempoDivide = (end - start) ;
-            tiemposDYV[i] = tiempoDivide; 
-            
+            long tiempoDivide= ejecucionDivideYVencerasUnitaria(vector); 
             System.out.println(n + "\t" + tiempoBruta + "\t\t" + tiempoDivide);
             
             i++; //Actualizar indice 
         }
         generarCSV(tamaños, "tiempos"); 
     }
-    public void ejecucionUsuario(int [] vector){
+    public long ejecucionBrutaUnitaria(int [] vector){
             long start = System.nanoTime();
             Bruta.inversiones(vector);
             long end = System.nanoTime();
-            long tiempoBruta = (end - start) ;
+            long tiempoBruta = (end - start); 
+            return tiempoBruta; 
+    }
 
+    public long ejecucionDivideYVencerasUnitaria(int[] vector){
             //divide y venceras
-            start = System.nanoTime();
+            long start = System.nanoTime();
             DivideYVenceras.contarInversiones(vector);
-            end = System.nanoTime();
+            long end = System.nanoTime();
             long tiempoDivide = (end - start) ;
+            return tiempoDivide; 
     }
     //Generar CSV
     private void generarCSV(int [] tamaños, String nombreArchivo){
