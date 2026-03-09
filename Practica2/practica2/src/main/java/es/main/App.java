@@ -14,6 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 
+import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionEvent;
 
 import Tools.*; 
@@ -22,47 +23,53 @@ public class App extends JFrame{
     private final Font mainFont = new Font("Segoe UI", Font.BOLD, 18);
     private final Font smallFont = new Font("Segoe UI", Font.PLAIN, 14); // Fuente más pequeña
     JTextField arrayNums = new JTextField(); 
+
     public void inizialize(){
+
+        //INICIALIZACIÓN DE OBJETOS DE LA INTERFAZ
     setTitle("Aplicación de comparacion de tiempos de algoritmos"); 
     JLabel label = new JLabel("Insertar los elementos del array que deseas ordenar"); 
     JLabel labelSmall = new JLabel("<html>Aplicación para comparación de tiempos entre el algoritmo de fuerza bruta y Divide y Venceras.<br>Introduce un array deseado en la entrada de texto, SIN ESPACIOS Y LOS NÚMEROS SEPARADOS POR COMAS para que ambos algoritmos lo ordenen.<br>El programa devolverá los tiempos de ejecución de cada uno.</html>");
     JButton ejecutarBruta = new JButton("Fuerza Bruta");
     JTextArea resultados = new JTextArea(10,40);  
     JButton ejecutarDYV = new JButton("Divide y vencerás"); 
+
+    //Establecer la fuente para cada objeto
     label.setFont(mainFont);
-    labelSmall.setFont(smallFont);  // Aplicar la fuente más pequeña a la etiqueta
+    labelSmall.setFont(smallFont);  
     arrayNums.setFont(mainFont); 
     ejecutarBruta.setFont(mainFont);
     resultados.setFont(smallFont); 
     ejecutarDYV.setFont(mainFont); 
 
-    // Limitar el tamaño del JTextField
+    //AJUSTE DE TAMAÑOS
     arrayNums.setColumns(20); // Establece el ancho preferido en base a 20 caracteres
-
-    // Limitar el tamaño del JButton
     ejecutarBruta.setPreferredSize(new Dimension(150, 40)); // Establece un tamaño fijo para el botón
     ejecutarDYV.setPreferredSize(new Dimension(150, 40));
+
     JPanel panel = new JPanel();
+    panel.setBorder(new EmptyBorder(10, 20, 10, 20)); // Añade un margen de 10 píxeles en todos los lados
     panel.setLayout(new GridLayout(5,1,5,5));
     panel.add(label);
     panel.add(labelSmall);
 
-    // Envolver arrayNums en un JPanel con FlowLayout para respetar su tamaño preferido
+    // Envolver el array de entrada y los botones 
     JPanel arrayNumsWrapper = new JPanel(new FlowLayout(FlowLayout.CENTER));
     arrayNumsWrapper.add(arrayNums);
     panel.add(arrayNumsWrapper);
-
-    // Envolver ejecutar en un JPanel con FlowLayout para respetar su tamaño preferido
     JPanel ejecutarWrapper = new JPanel(new FlowLayout(FlowLayout.CENTER));
+
+    //Agregar al panel los botones y el array de entrada
     ejecutarWrapper.add(ejecutarBruta);
     ejecutarWrapper.add(ejecutarDYV); 
     panel.add(ejecutarWrapper);
 
+    //Panel de salida 
     JScrollPane resultsPane = new JScrollPane(resultados); 
     panel.add(resultsPane); 
 
-    /*Action listener le da función al botón ejecutar. En el haremos la ejecucion del array
-        Tanto para el algoritmo de divide y vencerás como para el algoritmo de fuerza burta
+    /*Action listener le da función al botón ejecutarBruta. Aquí se ejecuta
+    el algoritmo de fuerza bruta
     */
    ejecutarBruta.addActionListener(new ActionListener() {
         @Override 
@@ -98,6 +105,9 @@ public class App extends JFrame{
             }
     }});
 
+        /*Action listener le da función al botón ejecutarDYV. Aquí se ejecuta
+    el algoritmo de divide y vencerás
+    */
     ejecutarDYV.addActionListener(new ActionListener(){
         @Override 
         public void actionPerformed(ActionEvent e){
