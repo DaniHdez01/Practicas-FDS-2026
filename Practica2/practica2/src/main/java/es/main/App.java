@@ -29,7 +29,6 @@ public class App extends JFrame{
     JButton ejecutarBruta = new JButton("Fuerza Bruta");
     JTextArea resultados = new JTextArea(10,40);  
     JButton ejecutarDYV = new JButton("Divide y vencerás"); 
-    JButton ejecucionMasiva = new JButton("Ejecución masiva"); 
     label.setFont(mainFont);
     labelSmall.setFont(smallFont);  // Aplicar la fuente más pequeña a la etiqueta
     arrayNums.setFont(mainFont); 
@@ -92,7 +91,6 @@ public class App extends JFrame{
                 //SACAR RESULTADOS POR LA INTERFAZ
                 resultados.append("Fuerza bruta:\n");
                 resultados.append("  Tiempo de ejecución: " + tiempoBruta + " nanosegundos\n");
-                resultados.append("  Array ordenado: " + java.util.Arrays.toString(arrayBruta) + "\n\n");
 
             }
             catch (NumberFormatException ex) {

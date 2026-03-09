@@ -18,7 +18,6 @@ public class Ejecucion {
         int[] tamaños = {100, 500, 1000, 2000, 5000};
 
         System.out.println("Tamaño\tBruta(ns)\tDivideVenceras(ns)");
-        int i = 0; 
         for (int n : tamaños) {
             int[] vector = Generador.generarVector(n);
 
@@ -28,7 +27,6 @@ public class Ejecucion {
             long tiempoDivide= ejecucionDivideYVencerasUnitaria(vector); 
             System.out.println(n + "\t" + tiempoBruta + "\t\t" + tiempoDivide);
             
-            i++; //Actualizar indice 
         }
         generarCSV(tamaños, "tiempos"); 
     }
