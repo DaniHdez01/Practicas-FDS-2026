@@ -26,21 +26,23 @@ public class App extends JFrame{
     setTitle("Aplicación de comparacion de tiempos de algoritmos"); 
     JLabel label = new JLabel("Insertar los elementos del array que deseas ordenar"); 
     JLabel labelSmall = new JLabel("<html>Aplicación para comparación de tiempos entre el algoritmo de fuerza bruta y Divide y Venceras.<br>Introduce un array deseado en la entrada de texto, SIN ESPACIOS Y LOS NÚMEROS SEPARADOS POR COMAS para que ambos algoritmos lo ordenen.<br>El programa devolverá los tiempos de ejecución de cada uno.</html>");
-    JButton ejecutar = new JButton("Ejecutar");
+    JButton ejecutarBruta = new JButton("Fuerza Bruta");
     JTextArea resultados = new JTextArea(10,40);  
-
+    JButton ejecutarDYV = new JButton("Divide y vencerás"); 
+    JButton ejecucionMasiva = new JButton("Ejecución masiva"); 
     label.setFont(mainFont);
     labelSmall.setFont(smallFont);  // Aplicar la fuente más pequeña a la etiqueta
     arrayNums.setFont(mainFont); 
-    ejecutar.setFont(mainFont);
+    ejecutarBruta.setFont(mainFont);
     resultados.setFont(smallFont); 
+    ejecutarDYV.setFont(mainFont); 
 
     // Limitar el tamaño del JTextField
     arrayNums.setColumns(20); // Establece el ancho preferido en base a 20 caracteres
 
     // Limitar el tamaño del JButton
-    ejecutar.setPreferredSize(new Dimension(150, 40)); // Establece un tamaño fijo para el botón
-
+    ejecutarBruta.setPreferredSize(new Dimension(150, 40)); // Establece un tamaño fijo para el botón
+    ejecutarDYV.setPreferredSize(new Dimension(150, 40));
     JPanel panel = new JPanel();
     panel.setLayout(new GridLayout(5,1,5,5));
     panel.add(label);
@@ -53,7 +55,8 @@ public class App extends JFrame{
 
     // Envolver ejecutar en un JPanel con FlowLayout para respetar su tamaño preferido
     JPanel ejecutarWrapper = new JPanel(new FlowLayout(FlowLayout.CENTER));
-    ejecutarWrapper.add(ejecutar);
+    ejecutarWrapper.add(ejecutarBruta);
+    ejecutarWrapper.add(ejecutarDYV); 
     panel.add(ejecutarWrapper);
 
     JScrollPane resultsPane = new JScrollPane(resultados); 
@@ -62,7 +65,7 @@ public class App extends JFrame{
     /*Action listener le da función al botón ejecutar. En el haremos la ejecucion del array
         Tanto para el algoritmo de divide y vencerás como para el algoritmo de fuerza burta
     */
-   ejecutar.addActionListener(new ActionListener() {
+   ejecutarBruta.addActionListener(new ActionListener() {
         @Override 
         public void actionPerformed(ActionEvent e){
             resultados.setText(""); 
@@ -84,24 +87,51 @@ public class App extends JFrame{
                 int [] arrayBruta = java.util.Arrays.copyOf(arrayOriginal, len); 
                 Ejecucion ejecucion = new Ejecucion(); 
                 long tiempoBruta = ejecucion.ejecucionBrutaUnitaria(arrayBruta);
-                
-                int [] arrayDYV = java.util.Arrays.copyOf(arrayOriginal, len); 
-                long tiempoDYV = ejecucion.ejecucionDivideYVencerasUnitaria(arrayDYV); 
+        
 
                 //SACAR RESULTADOS POR LA INTERFAZ
                 resultados.append("Fuerza bruta:\n");
                 resultados.append("  Tiempo de ejecución: " + tiempoBruta + " nanosegundos\n");
                 resultados.append("  Array ordenado: " + java.util.Arrays.toString(arrayBruta) + "\n\n");
-                
-                resultados.append("Divide Y Vencerás:\n");
-                resultados.append("  Tiempo de ejecución: " + tiempoDYV + " nanosegundos\n");
-                resultados.append("  Array ordenado: " + java.util.Arrays.toString(arrayDYV) + "\n\n");
 
             }
             catch (NumberFormatException ex) {
                 resultados.append("Error: Entrada inválida. Asegúrate de introducir solo números enteros separados por comas.\n");
             }
     }});
+
+    ejecutarDYV.addActionListener(new ActionListener(){
+        @Override 
+        public void actionPerformed(ActionEvent e){
+            resultados.setText(""); 
+            String input = arrayNums.getText(); 
+            if (input == null){
+                resultados.append("No has puesto nada de entrada"); 
+                return; 
+            }
+            //PROCESAMIENTO DE DATOS PARA DIVIDE Y VENCERÁS
+            try {
+                String [] arrayNumsEnStr = input.split(","); 
+                int len = arrayNumsEnStr.length; 
+                int [] arrayOriginal = new int [len]; 
+                for(int i = 0; i< arrayNumsEnStr.length; i++){
+                    arrayOriginal[i] = Integer.parseInt(arrayNumsEnStr[i]); 
+                }
+
+                int [] arrayDYV = java.util.Arrays.copyOf(arrayOriginal, len);
+                Ejecucion ejecucionDYV = new Ejecucion();  
+                long tiempoDYV = ejecucionDYV.ejecucionDivideYVencerasUnitaria(arrayDYV); 
+
+                //SACAR RESULTADOS POR LA INTERFAZ
+                resultados.append("Divide y vencerás:\n");
+                resultados.append("  Tiempo de ejecución: " + tiempoDYV + " nanosegundos\n");
+                resultados.append("  Array ordenado: " + java.util.Arrays.toString(arrayDYV) + "\n\n");
+
+            }catch (NumberFormatException ex) {
+                resultados.append("Error: Entrada inválida. Asegúrate de introducir solo números enteros separados por comas.\n");
+            }
+
+}});
 
     // Añadir un panel vacío para ocupar la cuarta fila del GridLayout
     panel.add(new JPanel()); // Este panel vacío es para mantener el GridLayout de 4 filas
@@ -114,5 +144,4 @@ public class App extends JFrame{
 
 /*
     FALTA: 
-    1. Meter la ejecución masiva en la interfaz
-    2. Arreglar bug: Fuerza bruta no ordena */
+    2. Arreglar bug: Fuerza bruta no ordena*/
