@@ -111,3 +111,8 @@ public class App extends JFrame{
     setVisible(true);
     }
 }
+
+/*
+    FALTA: 
+    1. Meter la ejecución masiva en la interfaz
+    2. Arreglar bug: Fuerza bruta no ordena */
