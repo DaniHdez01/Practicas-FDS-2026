@@ -9,4 +9,4 @@ Para poder usar este proyecto correctamente deberán de seguir los siguientes pa
 
 --------------------------------------------------------------------------------------
 Practica 2 
-Solo será necesario darle al botón de run al estár creado con Maven. 
+Solo será necesario darle al botón de run al estár creado con Maven desde la clase MAIN, ya qeu hemos desarrollado una interfaz gráfica para hacer mucho más facil sus pruebas. 
