@@ -14,9 +14,9 @@ public class Ejecucion {
         this.tiemposBruta = new long[5];
     }
     
-    public void ejecucionMasiva(){
-        int[] tamaños = {100, 500, 1000, 2000, 5000};
-
+    public void ejecucionMasiva(int [] sizes){
+        int[] tamaños = sizes; 
+        int i = 0; 
         System.out.println("Tamaño\tBruta(ns)\tDivideVenceras(ns)");
         for (int n : tamaños) {
             int[] vector = Generador.generarVector(n);
@@ -25,8 +25,10 @@ public class Ejecucion {
             long tiempoBruta = ejecucionBrutaUnitaria(vector);  
             //divide y venceras
             long tiempoDivide= ejecucionDivideYVencerasUnitaria(vector); 
-            System.out.println(n + "\t" + tiempoBruta + "\t\t" + tiempoDivide);
-            
+            System.out.println(n + "\t" + tiempoBruta + "\t\t" + tiempoDivide); 
+            tiemposDYV[i] = tiempoDivide; 
+            tiemposBruta[i] = tiempoBruta; 
+            i++; 
         }
         generarCSV(tamaños, "tiempos"); 
     }
@@ -69,4 +71,14 @@ public class Ejecucion {
         }
 
     }
+
+    public long[] getTiemposDYV() {
+        return tiemposDYV;
+    }
+
+    public long[] getTiemposBruta() {
+        return tiemposBruta;
+    }
+
+    
 }

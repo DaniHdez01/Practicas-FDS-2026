@@ -29,10 +29,11 @@ public class App extends JFrame{
         //INICIALIZACIÓN DE OBJETOS DE LA INTERFAZ
     setTitle("Aplicación de comparacion de tiempos de algoritmos"); 
     JLabel label = new JLabel("Insertar los elementos del array que deseas ordenar"); 
-    JLabel labelSmall = new JLabel("<html>Aplicación para comparación de tiempos entre el algoritmo de fuerza bruta y Divide y Venceras.<br>Introduce un array deseado en la entrada de texto, SIN ESPACIOS Y LOS NÚMEROS SEPARADOS POR COMAS para que ambos algoritmos lo ordenen.<br>El programa devolverá los tiempos de ejecución de cada uno.</html>");
+    JLabel labelSmall = new JLabel("<html>Aplicación para comparación de tiempos entre el algoritmo de fuerza bruta y Divide y Venceras.<br>Introduce un array deseado en la entrada de texto, SIN ESPACIOS Y LOS NÚMEROS SEPARADOS POR COMAS para que ambos algoritmos lo ordenen.<br>El programa devolverá los tiempos de ejecución de cada uno. <br> En caso de hacer una ejecución masiva para generar el csv de tiempos en el texto de entrada pon los tamaños deseados de cada array que quieres que se ejecute. <br> ADVERTENCIA: La ejecución masiva admite un máximo de 5 tamaños distintos</html>");
     JButton ejecutarBruta = new JButton("Fuerza Bruta");
     JTextArea resultados = new JTextArea(10,40);  
     JButton ejecutarDYV = new JButton("Divide y vencerás"); 
+    JButton ejecucionMasiva = new JButton("Ejecución masiva de ambos algoritmos"); 
 
     //Establecer la fuente para cada objeto
     label.setFont(mainFont);
@@ -41,11 +42,14 @@ public class App extends JFrame{
     ejecutarBruta.setFont(mainFont);
     resultados.setFont(smallFont); 
     ejecutarDYV.setFont(mainFont); 
+    ejecucionMasiva.setFont(mainFont); 
 
     //AJUSTE DE TAMAÑOS
     arrayNums.setColumns(20); // Establece el ancho preferido en base a 20 caracteres
     ejecutarBruta.setPreferredSize(new Dimension(150, 40)); // Establece un tamaño fijo para el botón
     ejecutarDYV.setPreferredSize(new Dimension(150, 40));
+    ejecucionMasiva.setPreferredSize(new Dimension(150, 40));
+
 
     JPanel panel = new JPanel();
     panel.setBorder(new EmptyBorder(10, 20, 10, 20)); // Añade un margen de 10 píxeles en todos los lados
@@ -62,6 +66,7 @@ public class App extends JFrame{
     //Agregar al panel los botones y el array de entrada
     ejecutarWrapper.add(ejecutarBruta);
     ejecutarWrapper.add(ejecutarDYV); 
+    ejecutarWrapper.add(ejecucionMasiva); 
     panel.add(ejecutarWrapper);
 
     //Panel de salida 
@@ -140,6 +145,36 @@ public class App extends JFrame{
             }
 
 }});
+    ejecucionMasiva.addActionListener(new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent e){
+        resultados.setText(""); 
+            String input = arrayNums.getText(); 
+            if (input == null){
+                resultados.append("No has puesto nada de entrada"); 
+                return; 
+            }
+            //PROCESAMIENTO DE DATOS PARA DIVIDE Y VENCERÁS
+            try {
+                String [] arrayNumsEnStr = input.split(","); 
+                int len = arrayNumsEnStr.length; 
+                int [] arrayOriginal = new int [len]; 
+                for(int i = 0; i< arrayNumsEnStr.length; i++){
+                    arrayOriginal[i] = Integer.parseInt(arrayNumsEnStr[i]); 
+                }
+
+                int [] arraySizes = java.util.Arrays.copyOf(arrayOriginal, len);
+                Ejecucion ejecucionMasiva = new Ejecucion();  
+                ejecucionMasiva.ejecucionMasiva(arraySizes); 
+                resultados.append("Generado con exito archivo csv con tiempos de ejecución de los siguientes tamaños: ");
+                resultados.append("Fuerza bruta: "+ java.util.Arrays.toString(ejecucionMasiva.getTiemposBruta())); 
+                resultados.append("Divide y venceras: "+java.util.Arrays.toString(ejecucionMasiva.getTiemposDYV())); 
+
+            }catch (NumberFormatException ex) {
+                resultados.append("Error: Entrada inválida. Asegúrate de introducir solo números enteros separados por comas.\n");
+            }
+    }
+    });
 
     // Añadir un panel vacío para ocupar la cuarta fila del GridLayout
     panel.add(new JPanel()); // Este panel vacío es para mantener el GridLayout de 4 filas
