@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
         Players allPlayers = new Players();
-        allPlayers.load("C:\\Users\\diego\\Desktop\\FDS\\voraces\\listado_jugadores_2026.csv");
+        allPlayers.load("listado_jugadores_2026.csv");
         allPlayers.sortByValue();
         allPlayers.reverse();
         allPlayers.print();
