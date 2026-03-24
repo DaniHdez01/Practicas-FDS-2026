@@ -56,6 +56,7 @@ public class TeamMaker {
             if (p.getValue() <= team.getBudget()) {
                 team.addPlayer(p);
                 team.setBudget(team.getBudget() - p.getValue());
+                players.removePlayer(p);
             }
         }
     }
@@ -77,6 +78,7 @@ public class TeamMaker {
 
                 team.addPlayer(p);
                 team.setBudget(team.getBudget() - p.getValue());
+                players.removePlayer(p);
             }
         }
 
@@ -91,6 +93,7 @@ public class TeamMaker {
             if (!team.getPlayers().equals(p) && p.getValue() <= team.getBudget()) {
                 team.addPlayer(p);
                 team.setBudget(team.getBudget() - p.getValue());
+                players.removePlayer(p);
             }
         }
     }
@@ -109,6 +112,7 @@ public class TeamMaker {
             if (p.getValue() <= team.getBudget()) {
                 team.addPlayer(p);
                 team.setBudget(team.getBudget() - p.getValue());
+                players.removePlayer(p);
             }
         }
     }
