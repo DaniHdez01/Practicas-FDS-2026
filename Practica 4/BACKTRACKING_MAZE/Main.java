@@ -35,5 +35,21 @@ public class Main {
             System.out.println("No se encontró un camino.");
         }
 
+
+        /*
+            PARA HACER EL MAIN PARA EL ALGORITMO DEL CABALLO: 
+            1. Que haga un tablero de las dimensiones que quiere el usuario:: 
+                1.a pedir por entrada dimensiones. 
+                1.b ChessBoard nombre = new ChessBoard(x,y) CREAR EL TABLERO 
+                1.c ChessKnightSolver solucion = new ChessKnightSolver (Tablero, caminoAbierto (booleano))
+                1.d Llamar función findPath()
+                1.e imprimir el tablero solucionado 
+                HACER ESTO 2 VECES: Una con camino abierto y otra con cerrado
+            2. Baterá de prebas: 
+                Que cree tableros random y que genere un archivo csv en el que haya una tabla con lo siguiente 
+                    Tamaño | Con camino abierto | Con camino cerrado | Tiempo para camino abierto | Tiempo para camino cerrado 
+
+         */
+
     }
 }

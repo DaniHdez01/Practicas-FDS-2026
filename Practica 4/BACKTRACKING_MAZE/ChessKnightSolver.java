@@ -21,8 +21,22 @@ public class ChessKnightSolver {
 
     public boolean PathExists() {
         boolean success = false;
-        /// Implementar el algoritmo de búsqueda para encontrar un camino del caballo en el tablero.
+        int [][] movements = {{1, 2}, 
+        {2, 1}, 
+        {-1, 2}, 
+        {2, -1}, 
+        {1, -2}, 
+        {-1, -2}, 
+        {-2, -1}}; 
+        this.board.setValue(0, 0); 
+        int[] pos = this.board.findCellWithValueOne(); 
+        success = findPath(pos, movements); 
         return success;
+    }
+    //Función principal para backtracking. LLAMAR EN EL MAIN A LA HORA DE EJECUTAR EL ALGORTIMO 
+    private boolean findPath(int [] pos, int [][]movements){
+        
+
     }
 
 }
