@@ -2,6 +2,8 @@
  * Representa un tablero de ajedrez con una cuadrícula de valores enteros.
  * Esta clase puede ser utilizada para modelar el tablero en problemas como el del Salto del Caballo.
  */
+import CellType; 
+import java.util.random.*;
 public class ChessBoard {
 
     private final int[][] grid;
@@ -21,7 +23,7 @@ public class ChessBoard {
         // Inicializa todas las celdas de la cuadrícula a 0
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                this.grid[row][col] = 0;
+                this.grid[row][col] = CellType.FREE;
             }
         }
     }
@@ -52,8 +54,26 @@ public class ChessBoard {
     public int getCols() {
         return grid[0].length;
     }
-    public voisd setValue(int x, int y){
-        this.grid[x][y] = 1; 
+    public void setStart(int x, int y){
+        this.grid[x][y] = CellType.START; 
+    }
+    public void setEnd(int x, int y){
+        this.grid[x][y] = CellType.END; 
+    }
+    public void setPath(int x, int y){
+        this.grid[x][y] = CellType.PATH; 
+    }
+    public void setFree(int x, int y){
+        this.grid[x][y] = CellType.FREE; 
+    }
+    public int getValue(int x, int y){
+        return this.grid[x][y]; 
+    }
+    public int[] randomPos(){
+        Random random = new Random(); 
+        int x = random.nextInt(getCols()); 
+        int y = random.nextInt(getRows()); 
+        return new int[]{x, y}; 
     }
     
     /**
