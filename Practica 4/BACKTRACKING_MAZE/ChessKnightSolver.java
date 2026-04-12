@@ -30,12 +30,17 @@ public class ChessKnightSolver {
         {-2, -1}}; 
         this.board.setValue(0, 0); 
         int[] pos = this.board.findCellWithValueOne(); 
-        success = findPath(pos, movements); 
+        success = findPath(pos, movements, 0); 
         return success;
     }
     //Función principal para backtracking. LLAMAR EN EL MAIN A LA HORA DE EJECUTAR EL ALGORTIMO 
-    private boolean findPath(int [] pos, int [][]movements){
-        
+    private boolean findPath(int [] pos, int [][]movements, int steps){
+        this.board.setValue(pos[0],pos[1]); //Paso 1: damos como visitada la casilla actual
+        // Paso 2: comprobamos si el estado actual es solución: 
+        //Para cada posible solución 
+        for(int i = 0; i<movements.length; i++){
+
+        }
 
     }
 

@@ -58,6 +58,7 @@ public class Main {
          * 
          */
 
+        //ENTRADA DE USUARIO 
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("PROBLEMA DEL CABALLO");
@@ -66,6 +67,7 @@ public class Main {
         System.out.print("Introducir numero de columnas del tablero: ");
         int columnasTablero = scanner.nextInt();
 
+        
         // camino abierto
         ChessBoard tablero = new ChessBoard(filasTablero, columnasTablero);
 
