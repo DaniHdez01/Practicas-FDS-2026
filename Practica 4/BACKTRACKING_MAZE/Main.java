@@ -42,8 +42,8 @@ public class Main {
                 1.a pedir por entrada dimensiones. 
                 1.b ChessBoard nombre = new ChessBoard(x,y) CREAR EL TABLERO 
                 1.c ChessKnightSolver solucion = new ChessKnightSolver (Tablero, caminoAbierto (booleano))
-                1.d Llamar función findPath()
-                1.e imprimir el tablero solucionado 
+                1.d Llamar función PathExists()
+                1.e imprimir el tablero solucionado (En caso de encontrarlo)
                 HACER ESTO 2 VECES: Una con camino abierto y otra con cerrado
             2. Baterá de prebas: 
                 Que cree tableros random y que genere un archivo csv en el que haya una tabla con lo siguiente 
