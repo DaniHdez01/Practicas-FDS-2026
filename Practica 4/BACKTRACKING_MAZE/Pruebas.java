@@ -15,7 +15,7 @@ public class Pruebas {
 
         System.out.println("Camino abierto");
         long inicioAbierto = System.currentTimeMillis();
-        boolean encontradoAbierto = solverAbierto.PathExists();
+        boolean encontradoAbierto = solverAbierto.openPathExists();
         long tiempoAbierto = System.currentTimeMillis() - inicioAbierto;
 
         if (encontradoAbierto) {
@@ -37,7 +37,7 @@ public class Pruebas {
 
         System.out.println("Camino cerrado");
         long inicioCerrado = System.currentTimeMillis();
-        boolean encontradoCerrado = solverCerrado.PathExists();
+        boolean encontradoCerrado = solverCerrado.closePathExists();
         long tiempoCerrado = System.currentTimeMillis() - inicioCerrado;
 
         if (encontradoCerrado) {
@@ -69,14 +69,14 @@ public class Pruebas {
                 ChessBoard tableroAbierto = new ChessBoard(f, c);
                 ChessKnightSolver solAbierto = new ChessKnightSolver(tableroAbierto, true);
                 long t0 = System.currentTimeMillis();
-                boolean resAbierto = solAbierto.PathExists();
+                boolean resAbierto = solAbierto.openPathExists();
                 long tiempoAb = System.currentTimeMillis() - t0;
 
                 // Camino cerrado
                 ChessBoard tabCerrado = new ChessBoard(f, c);
                 ChessKnightSolver solCerrado = new ChessKnightSolver(tabCerrado, false);
                 long t1 = System.currentTimeMillis();
-                boolean resCerrado = solCerrado.PathExists();
+                boolean resCerrado = solCerrado.closePathExists();
                 long tiempoCe = System.currentTimeMillis() - t1;
 
                 // Escribir fila en el CSV

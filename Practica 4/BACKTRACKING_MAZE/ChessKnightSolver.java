@@ -20,7 +20,7 @@ public class ChessKnightSolver {
         return openPath;
     }
 
-    public boolean PathExists() {
+    public boolean openPathExists() {
         boolean success = false;
         int [][] movements = {{1, 2}, 
         {2, 1}, 
@@ -32,6 +32,22 @@ public class ChessKnightSolver {
         int [] pos = this.board.randomPos(); 
         this.board.setStart(pos[0], pos[1]); 
         int [] end = this.board.randomPos();
+        this.board.setEnd(end[0], end[1]); 
+        success = findPath(pos, movements); 
+        return success;
+    }
+      public boolean closePathExists() {
+        boolean success = false;
+        int [][] movements = {{1, 2}, 
+        {2, 1}, 
+        {-1, 2}, 
+        {2, -1}, 
+        {1, -2}, 
+        {-1, -2}, 
+        {-2, -1}}; 
+        int [] pos = this.board.randomPos(); 
+        this.board.setStart(pos[0], pos[1]); 
+        int [] end = pos;
         this.board.setEnd(end[0], end[1]); 
         success = findPath(pos, movements); 
         return success;
