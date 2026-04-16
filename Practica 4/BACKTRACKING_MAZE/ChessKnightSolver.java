@@ -52,7 +52,7 @@ public class ChessKnightSolver {
         success = findPath(pos, movements, 0); 
         return success;
     }
-    //Función principal para backtracking. LLAMAR EN EL MAIN A LA HORA DE EJECUTAR EL ALGORTIMO 
+    //Función principal para backtracking. 
     private boolean findPath(int[] pos, int[][] movements, int steps) {
 
         //Paso 1: comprobamos si la casilla es meta
@@ -70,8 +70,8 @@ public class ChessKnightSolver {
                     hayCamino = true; 
                     pos[0] += movements[i][0]; 
                     pos[1] += movements[i][1]; 
-                    this.board.setPath(pos[0], pos[1], steps++);
-                    findPath(pos, movements); 
+                    this.board.setPath(pos[0], pos[1]);
+                    findPath(pos, movements, steps++); 
 
                     //Paso 4: Deshacer la opción 
                     this.board.setFree(pos[0], pos[1]);
