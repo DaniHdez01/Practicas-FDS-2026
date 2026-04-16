@@ -2,7 +2,7 @@
  * Representa un tablero de ajedrez con una cuadrícula de valores enteros.
  * Esta clase puede ser utilizada para modelar el tablero en problemas como el del Salto del Caballo.
  */
-import static CellType; 
+
 import java.util.Random;
 public class ChessBoard {
 

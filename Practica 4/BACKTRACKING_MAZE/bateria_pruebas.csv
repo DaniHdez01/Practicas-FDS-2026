@@ -1,0 +1,21 @@
+Tamaño,Camino abierto,Camino cerrado,Tiempo abierto (ms),Tiempo cerrado (ms)
+3x3,SÍ,NO,1,0
+4x4,SÍ,SÍ,0,0
+5x5,SÍ,SÍ,0,0
+6x6,SÍ,SÍ,0,0
+3x10,SÍ,SÍ,0,0
+3x12,SÍ,SÍ,0,0
+5x6,SÍ,SÍ,0,0
+3x4,SÍ,SÍ,0,0
+3x5,SÍ,SÍ,0,0
+3x6,SÍ,SÍ,0,0
+3x8,SÍ,SÍ,0,1
+4x6,SÍ,SÍ,0,0
+4x3,SÍ,SÍ,0,0
+5x3,SÍ,SÍ,0,0
+6x3,SÍ,SÍ,0,0
+8x3,SÍ,SÍ,0,0
+6x4,SÍ,SÍ,0,0
+6x5,SÍ,SÍ,0,0
+10x3,SÍ,SÍ,0,0
+12x3,SÍ,SÍ,0,0
