@@ -2,8 +2,8 @@
  * Representa un tablero de ajedrez con una cuadrícula de valores enteros.
  * Esta clase puede ser utilizada para modelar el tablero en problemas como el del Salto del Caballo.
  */
-import CellType; 
-import java.util.random.*;
+import static CellType; 
+import java.util.Random;
 public class ChessBoard {
 
     private final int[][] grid;
@@ -71,8 +71,8 @@ public class ChessBoard {
     }
     public int[] randomPos(){
         Random random = new Random(); 
-        int x = random.nextInt(getCols()); 
-        int y = random.nextInt(getRows()); 
+        int x = random.nextInt(getRows()); 
+        int y = random.nextInt(getCols()); 
         return new int[]{x, y}; 
     }
     

@@ -14,7 +14,7 @@ public class Main {
         System.out.println("Opción 1: Prueba unitaria: ");
         System.out.println("Opción 2: Generar batería de pruebas: "); 
         System.out.println("Cualquier otra tecla que se introduzca se usará para salir del programa"); 
-        int opcion = scaner.nextInt();
+        int opcion = scanner.nextInt(); 
          Pruebas prueba = new Pruebas();  
             if (opcion == 1){
                 System.out.print("Introucir numero de filas del tablero: ");
@@ -31,8 +31,8 @@ public class Main {
                 System.out.print("Generando CSV con la batería de pruebas");
                 prueba.bateria_pruebas();
         } else {
-            System.out.println("Opción no válida"); 
-            break; 
+            System.out.println("Opción no válida");
         }
+        scanner.close(); 
 }
 }

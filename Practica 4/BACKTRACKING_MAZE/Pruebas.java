@@ -47,8 +47,6 @@ public class Pruebas {
         }
         tableroCerrado.print();
 
-        scanner.close();
-
         return tiempoCerrado;
     }
 
