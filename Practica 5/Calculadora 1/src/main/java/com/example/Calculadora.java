@@ -1,4 +1,4 @@
-package main.java.com.example;
+package com.example;
 public class Calculadora {
     public int calcular(int num1, int num2, char op) {
         // Declarar objeto operador

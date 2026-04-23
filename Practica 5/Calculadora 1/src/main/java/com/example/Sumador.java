@@ -1,4 +1,4 @@
-package main.java.com.example;
+package com.example;
 public class Sumador implements Operador{
      @Override
     public int operar(int a, int b){
