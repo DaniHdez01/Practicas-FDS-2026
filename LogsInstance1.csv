@@ -1,0 +1,5 @@
+marca ;mensaje;nivel;
+2026-04-27T17:56:08.507377400;Alta de usuario correcto;INFO
+2026-04-27T17:56:08.513376500;Inicio de sesión correcto;INFO
+2026-04-27T17:56:08.514377200;Inicio de sesión con un usuario inexistente;WARNING
+2026-04-27T17:56:08.514377200;Contraseña incorrecta;ERROR
