@@ -1,8 +1,9 @@
 package com.example;
 import java.util.ArrayList;
+import java.util.Arrays;
 public class BurbujaList implements Ordenacion {
 
-    private ArrayList<Integer> vector = new ArrayList<>();
+        ArrayList<Integer> vector = new ArrayList<>(Arrays.asList(10, 9, 8, 7, 6, 5, 4, 3, 2, 1));
 
     @Override
     public void ordenar() {
