@@ -1,9 +1,9 @@
 package com.example;
 
 public class SelectionStatic implements Ordenacion{
-
+    //Clase que ordenará un array estático mediante el algoritmo de selección
     private static int [] vector = {10,9,8,7,6,5,4,3,2,1};
-
+    //Cada clase redefinirá los métodos declarados en la clase Ordenación 
     @Override
     public void ordenar(){
          int m;

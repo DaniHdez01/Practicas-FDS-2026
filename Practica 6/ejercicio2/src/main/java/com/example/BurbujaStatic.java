@@ -2,7 +2,9 @@ package com.example;
 
 public class BurbujaStatic implements Ordenacion{
     private static int [] vector = {10,9,8,7,6,5,4,3,2,1};
-
+    //Clase burbuja que ordena con un array estático
+    
+    //Cada clase redefinirá los métodos declarados en la clase Ordenación 
     @Override
     public void ordenar() {
         for (int i = 0; i < vector.length - 1; i++) {
