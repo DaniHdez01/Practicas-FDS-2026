@@ -1,0 +1,64 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+interface Ordenacion {
+    + ordenar(): void
+    + imprimir(): void
+}
+
+abstract class FactorySort {
+    # crearInstancia(type: String): Ordenacion
+    + ordenar(type: String): Ordenacion
+    + imprimir(type: String): Ordenacion
+}
+
+class FactoryList {
+    + crearInstancia(type: String): Ordenacion
+}
+
+class FactoryStatic {
+    + crearInstancia(type: String): Ordenacion
+}
+
+class BurbujaList {
+    - vector: ArrayList<Integer>
+    + ordenar(): void
+    + imprimir(): void
+}
+
+class SelectionList {
+    - vector: ArrayList<Integer>
+    + ordenar(): void
+    + imprimir(): void
+}
+
+class BurbujaStatic {
+    - {static} vector: int[]
+    + ordenar(): void
+    + imprimir(): void
+}
+
+class SelectionStatic {
+    - {static} vector: int[]
+    + ordenar(): void
+    + imprimir(): void
+}
+
+class Test {
+    + main(args: String[]): void
+}
+
+FactorySort <|-- FactoryList
+FactorySort <|-- FactoryStatic
+
+Ordenacion <|.. BurbujaList
+Ordenacion <|.. SelectionList
+Ordenacion <|.. BurbujaStatic
+Ordenacion <|.. SelectionStatic
+
+FactorySort ..> Ordenacion : crea >
+
+Test ..> FactoryList
+Test ..> FactoryStatic
+
+@enduml

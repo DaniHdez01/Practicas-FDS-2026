@@ -1,0 +1,49 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Log {
+    - marca: LocalDateTime
+    - message: String
+    - level: Nivel
+    + Log(marca: LocalDateTime, message: String, level: Nivel)
+    + getTimestamp(): LocalDateTime
+    + getMessage(): String
+    + getNivel(): Nivel
+}
+
+enum Nivel {
+    INFO
+    WARNING
+    ERROR
+}
+
+class AuditLogger {
+    - {static} instance: AuditLogger
+    - listaLogs: List<Log>
+    - AuditLogger()
+    + {static} getInstance(): AuditLogger
+    + log(nivel: Nivel, message: String): void
+    + persistir(nombreArchivo: String): void
+    + cargar(nombreArchivo: String): void
+    - parseNivel(nivelString: String): Nivel
+}
+
+class Loggin {
+    + loadLogs(auditoria: AuditLogger): void
+}
+
+class Test {
+    + {static} main(args: String[]): void
+}
+
+AuditLogger "1" -- "0..*" Log : contiene >
+AuditLogger ..> Nivel : usa
+Log ..> Nivel : tiene
+
+Loggin ..> AuditLogger : usa
+Loggin ..> Nivel : usa
+
+Test ..> AuditLogger : usa
+Test ..> Loggin : usa
+
+@enduml
