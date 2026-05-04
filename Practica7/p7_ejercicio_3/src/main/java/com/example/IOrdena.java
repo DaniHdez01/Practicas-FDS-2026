@@ -1,5 +1,5 @@
 package com.example;
 
-public interface Estatico {
+public interface IOrdena {
     public abstract void ordena(int[] v);
 }
