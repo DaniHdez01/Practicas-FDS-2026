@@ -3,7 +3,7 @@ package com.example;
 import java.util.ArrayList;
 
 // Esta clase actúa como un Adaptador para hacer compatible MergeSort con la interfaz Estatico
-public class Adaptador implements Estatico {
+public class Adaptador implements IOrdena {
 
     // Instancia de la clase MergeSort que vamos a adaptar
     private MergeSort mergeSort;
