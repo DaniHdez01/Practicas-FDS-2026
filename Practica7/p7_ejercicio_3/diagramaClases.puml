@@ -1,4 +1,4 @@
-@startuml ejercicio2
+@startuml ejercicio3
 skinparam classAttributeIconSize 0
 
 interface IOrdena {
@@ -20,7 +20,7 @@ class Prueba {
 }
 
 IOrdena <|.. Adaptador
-Adaptador --> MergeSort : - mergeSort
+Adaptador --> MergeSort : - ordena
 
 Prueba --> IOrdena : usa
 Prueba --> Adaptador : crea
