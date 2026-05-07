@@ -1,0 +1,52 @@
+@startuml ejercicio1
+    skinparam classAttributeIconSize 0
+
+    package com.example {
+
+        class Test {
+            + main(String[] args): void
+        }
+
+        abstract class ReaderDecorator {
+            # reader: Reader
+        }
+
+        abstract class WriterDecorator {
+            # writer: Writer
+        }
+
+        class CriptoReader {
+            + CriptoReader(Reader reader)
+            + close(): void
+            + read(char[] cbuf, int off, int len): int
+            + read(): int
+        }
+
+        class CriptoWriter {
+            + CriptoWriter(Writer writer)
+            + close(): void
+            + flush(): void
+            + write(char[] cbuf, int off, int len): void
+            + write(int c): void
+            + write(String str): void
+        }
+
+        java.io.Reader <|-- ReaderDecorator
+        java.io.Writer <|-- WriterDecorator
+
+        ReaderDecorator <|-- CriptoReader
+        WriterDecorator <|-- CriptoWriter
+
+        ReaderDecorator o-- java.io.Reader : <<decorates>>
+        WriterDecorator o-- java.io.Writer : <<decorates>>
+
+        Test ..> CriptoWriter : uses
+        Test ..> CriptoReader : uses
+        Test ..> java.io.File : uses
+        Test ..> java.io.FileReader : uses
+        Test ..> java.io.FileWriter : uses
+        Test ..> java.io.IOException : uses
+        Test ..> java.io.Reader : uses
+        Test ..> java.io.Writer : uses
+    }
+@enduml

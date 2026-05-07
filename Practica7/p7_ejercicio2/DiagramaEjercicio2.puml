@@ -1,0 +1,51 @@
+@startuml ejercicio2_practica7
+skinparam classAttributeIconSize 0
+
+class AgenciaViajes {
+    - servicioVuelos: ServicioVuelos
+    - servicioHotel: ServicioHotel
+    - servicioPago: ServicioPago
+    + AgenciaViajes(ServicioVuelos vuelos, ServicioHotel hotel, ServicioPago pago)
+    + reservar(String origen, String destino, int noches): String
+}
+
+class ServicioVuelos {
+    - vuelos: Map<String, int[]>
+    + ServicioVuelos()
+    + existeVuelo(String origen, String destino): boolean
+    + hayPlazas(String origen, String destino): boolean
+    + reservarPlaza(String origen, String destino): boolean
+    + liberarPlaza(String origen, String destino): void
+    + getPrecio(String origen, String destino): int
+}
+
+class ServicioHotel {
+    - hoteles: Map<String, int[]>
+    + ServicioHotel()
+    + hayHabitacion(String ciudad): boolean
+    + reservarHabitacion(String ciudad): boolean
+    + liberarHabitacion(String ciudad): void
+    + getPrecioNoche(String ciudad): int
+}
+
+class ServicioPago {
+    - saldo: int
+    + ServicioPago(int saldoInicial)
+    + tieneSaldo(int importe): boolean
+    + cobrar(int importe): boolean
+    + devolver(int importe): void
+    + getSaldo(): int
+    + cobrarConFalloSimulado(int importe): boolean
+}
+
+class Main {
+    + main(String[] args): void
+}
+
+AgenciaViajes "1" *-- "1" ServicioVuelos : usa
+AgenciaViajes "1" *-- "1" ServicioHotel : usa
+AgenciaViajes "1" *-- "1" ServicioPago : usa
+
+Main ..> AgenciaViajes : crea/usa
+
+@enduml

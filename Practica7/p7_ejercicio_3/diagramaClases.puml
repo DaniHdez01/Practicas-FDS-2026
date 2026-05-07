@@ -1,0 +1,28 @@
+@startuml ejercicio3
+skinparam classAttributeIconSize 0
+
+interface IOrdena {
+    + ordena(int[] v)
+}
+
+class MergeSort {
+    + ordena(ArrayList<Integer> a)
+}
+
+class Adaptador {
+    - mergeSort: MergeSort
+    + Adaptador()
+    + ordena(int[] v): void
+}
+
+class Prueba {
+    + main(String[] args): void
+}
+
+IOrdena <|.. Adaptador
+Adaptador --> MergeSort : - ordena
+
+Prueba --> IOrdena : usa
+Prueba --> Adaptador : crea
+
+@enduml

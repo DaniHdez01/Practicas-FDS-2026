@@ -1,7 +1,9 @@
 package com.example;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
-
 public class Prueba {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -12,14 +14,15 @@ public class Prueba {
 
         int[] vector = new int[n];
 
-        // Pedimos al usuario que introduzca los valores del array
-        System.out.println("Introduce los valores del array:");
+        System.out.println("Generando un array de longitud" + n + " con números aleatorios: "); 
+        Random random = new Random(); 
         for (int i = 0; i < n; i++) {
-            vector[i] = sc.nextInt();
+            vector[i] = random.nextInt(100) +1; 
         }
+        System.out.println("Array generado: " + Arrays.toString(vector)); 
 
         // Creamos una instancia del adaptador que implementa Estatico
-        Estatico adaptador = new Adaptador();
+        IOrdena adaptador = new Adaptador();
 
         // Usamos el adaptador para ordenar el array
         adaptador.ordena(vector);
