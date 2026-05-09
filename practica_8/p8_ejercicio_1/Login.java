@@ -1,4 +1,4 @@
-package ej1;
+package p8_ejercicio_1;
 
 public class Login {
 
