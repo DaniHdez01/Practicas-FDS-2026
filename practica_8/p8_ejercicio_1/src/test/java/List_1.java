@@ -1,4 +1,3 @@
-package p8_ejercicio_1;
 
 public interface List_1<T> {
 

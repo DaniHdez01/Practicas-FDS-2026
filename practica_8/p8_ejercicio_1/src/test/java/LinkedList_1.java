@@ -1,4 +1,3 @@
-package p8_ejercicio_1;
 
 public class LinkedList_1<T> implements List_1<T> {
 

@@ -1,4 +1,3 @@
-package p8_ejercicio_1;
 
 public class AlmacenForeros implements Almacen<Forero> {
 

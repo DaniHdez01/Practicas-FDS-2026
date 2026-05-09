@@ -1,9 +1,8 @@
-package p8_ejercicio_1;
 
-public class Colaborador {
+public class Admin {
     private String nombre;
 
-    public Colaborador(String nombre) {
+    public Admin(String nombre) {
         this.nombre = nombre;
     }
 
@@ -12,4 +11,5 @@ public class Colaborador {
         return nombre;
     }
 
+    
 }

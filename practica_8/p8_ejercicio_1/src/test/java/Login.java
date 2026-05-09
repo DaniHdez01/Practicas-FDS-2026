@@ -1,4 +1,4 @@
-package p8_ejercicio_1;
+
 
 public class Login {
 
@@ -25,7 +25,7 @@ public class Login {
         añadeAdmin(new Admin("admin1"));
         añadeAdmin(new Admin("admin2"));
         añadeAdmin(new Admin("admin3"));
-        añadeAdmin(new Admin("admin4"));
+        añadeAdmin(new Admin("admin4")); 
     }
 
     public void añadeForero(Forero f) {

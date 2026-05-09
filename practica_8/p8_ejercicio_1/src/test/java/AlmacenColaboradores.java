@@ -1,4 +1,3 @@
-package p8_ejercicio_1;
 
 public class AlmacenColaboradores implements Almacen<Colaborador> {
 
