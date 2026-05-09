@@ -1,9 +1,9 @@
-package com.example.lista_enlazada;
+package ej1;
 
 public class LinkedList_1<T> implements List_1<T> {
 
-    private SimpleNode<T> first;
-    private SimpleNode<T> last;
+    private SimpleNode first;
+    private SimpleNode last;
     private int size;
 
     public LinkedList_1() {
@@ -17,13 +17,13 @@ public class LinkedList_1<T> implements List_1<T> {
         return size;
     }
 
-    public SimpleNode<T> getFirst() {
+    public SimpleNode getFirst() {
         return first;
     }
 
     /** añade un elemento al principio de la lista. */
     public void addFirst(T element) {
-        SimpleNode<T> newNode = new SimpleNode<T>(element, first);
+        SimpleNode newNode = new SimpleNode(element, first);
         first = newNode;
         if (last == null)
             last = first;
@@ -33,7 +33,7 @@ public class LinkedList_1<T> implements List_1<T> {
     /** añade un elemento al final de la lista. */
     public void addLast(T element) {
 
-        SimpleNode<T> newNode = new SimpleNode<T>(element, null);
+        SimpleNode newNode = new SimpleNode(element, null);
         if (first == null) {
             last = newNode;
             first = last;
@@ -54,8 +54,8 @@ public class LinkedList_1<T> implements List_1<T> {
             this.addFirst(element);
         else {
 
-            SimpleNode<T> newNode = new SimpleNode<T>(element, null);
-            SimpleNode<T> pivot = first;
+            SimpleNode newNode = new SimpleNode(element, null);
+            SimpleNode pivot = first;
 
             for (int i = 0; i < index - 1; i++)
                 pivot = pivot.getNext();
@@ -79,7 +79,7 @@ public class LinkedList_1<T> implements List_1<T> {
 
     /** elimina el último elemento */
     public void removeLast() throws Exception {
-        SimpleNode<T> pivot = first;
+        SimpleNode pivot = first;
 
         if (this.isEmpty())
             throw new Exception("Can´t remove anything, empty list!");
@@ -113,7 +113,7 @@ public class LinkedList_1<T> implements List_1<T> {
                 throw new Exception("element not found");
         }
 
-        SimpleNode<T> pivot = first;
+        SimpleNode pivot = first;
 
         if (pivot.getElement().equals(element)) {
             e = (T) first.getElement();
@@ -136,7 +136,7 @@ public class LinkedList_1<T> implements List_1<T> {
 
     }
 
-    /** Elimina todos los elementos de la lista (la vacía) */
+    /** Elimina todos los elementos de la lista (la vacia) */
     public void clean() {
         first = null;
         last = null;
@@ -158,7 +158,7 @@ public class LinkedList_1<T> implements List_1<T> {
 
         int index = 0;
 
-        SimpleNode<T> pivot = first;
+        SimpleNode pivot = first;
 
         while (pivot != null && !found) {
             if (pivot.getElement().equals(element))
@@ -180,7 +180,7 @@ public class LinkedList_1<T> implements List_1<T> {
      * throw new IndexOutOfBoundsException("Index out of bounds");
      * }
      * 
-     * SimpleNode<T> current = first;
+     * SimpleNode current = first;
      * int i = 0;
      * 
      * while (i < index) {
@@ -199,7 +199,7 @@ public class LinkedList_1<T> implements List_1<T> {
         if (index >= this.getSize())
             throw new IndexOutOfBoundsException("index out of bounds");
 
-        SimpleNode<T> pivot = first;
+        SimpleNode pivot = first;
 
         for (int i = 0; i < index; i++)
             pivot = pivot.getNext();
@@ -219,7 +219,7 @@ public class LinkedList_1<T> implements List_1<T> {
 
         T e = null;
 
-        SimpleNode<T> pivot = first;
+        SimpleNode pivot = first;
 
         while (pivot != null && !found) {
             if (pivot.getElement().equals(element)) {
@@ -238,7 +238,7 @@ public class LinkedList_1<T> implements List_1<T> {
     public boolean contains(T element) throws Exception {
 
         boolean found = false;
-        SimpleNode<T> pivot = first;
+        SimpleNode pivot = first;
 
         while (pivot != null && !found)
             if (pivot.getElement().equals(element)) {
@@ -251,7 +251,7 @@ public class LinkedList_1<T> implements List_1<T> {
     }
 
     public void print() {
-        SimpleNode<T> pivot = first;
+        SimpleNode pivot = first;
         while (pivot != null) {
             System.out.println(pivot.getElement());
             pivot = pivot.getNext();
