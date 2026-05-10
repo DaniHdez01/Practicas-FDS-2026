@@ -11,7 +11,7 @@ public class Principal
     public static void main( String[] args )
     {
         // Inicializar array desordenado
-        int[] arrayA = {5465, 456498, 865, 23};
+        int[] arrayA = {2, 1, 3};
         int[] arrayB = Arrays.copyOf(arrayA, arrayA.length);
 
         // Imprimir array
